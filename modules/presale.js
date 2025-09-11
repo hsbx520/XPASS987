@@ -3,7 +3,7 @@ const toast = (t)=>{const el=document.getElementById("toast");clearTimeout(toast
 const addrEl = () => document.getElementById("presaleAddress") || { textContent: "0xa19bEC4e8c5790C63EBd1BaB9718BEE3d2E40b07" };
 
 export function presaleUI(){
-  const min={ETH:0.05,USDC:200,USDT:200,BNB:0.3,SOL:1}, rate={ETH:565000,USDC:125,USDT:125,BNB:112500,SOL:27000};
+  const min={ETH:0.05,USDC:200,USDT:200,BNB:0.3,SOL:1}, rate={ETH:585000,USDC:125,USDT:125,BNB:115000,SOL:27000};
   const amount=document.getElementById("amountInput"), err=document.getElementById("errorMsg"), recv=document.getElementById("receiveBox");
   let token="ETH";
   const fmtUsd=n=>`$${n.toLocaleString()}`, setRecv=()=>{const v=parseFloat(amount.value||"0");const out=isNaN(v)?0:v*rate[token];recv.innerHTML=`You will receive: <span class="receive__amount">${out.toLocaleString()}</span> <span class="receive__token">XPASS</span>`;};
@@ -32,7 +32,7 @@ function toggleModal(id,show){const m=document.getElementById(id);m.setAttribute
 function openConfirm(val,token){
   document.getElementById("tsAmount").textContent = val;
   document.getElementById("tsToken").textContent = token;
-  const rateMap = { ETH:565000, USDC:125, USDT:125, BNB:112000, SOL:27000 };
+  const rateMap = { ETH:585000, USDC:125, USDT:125, BNB:115000, SOL:27000 };
   const recv = (parseFloat(val||"0") * (rateMap[token]||0)) || 0;
   document.getElementById("tsReceive").textContent = `${recv.toLocaleString()} XPASS`;
   const netMap={ETH:"Use Ethereum network (ETH / ERC-20).",BNB:"Use BSC network (BNB / BEP-20).",USDC:"Use Ethereum (ERC-20) or BSC (BEP-20) network.",USDT:"Use Ethereum (ERC-20) or BSC (BEP-20) network.",SOL:"Use Solana network (SOL)."};
@@ -102,8 +102,8 @@ if (howDlg) {
     <div class="ts-card">
       <div class="ts-row"><span><strong>💱 Current Exchange Rates</strong></span></div>
       <ul>
-        <li>1 ETH = 565,000 XPASS (Min: 0.05 ETH)</li>
-        <li>1 BNB = 112,500 XPASS (Min: 0.3 BNB)</li>
+        <li>1 ETH = 585,000 XPASS (Min: 0.05 ETH)</li>
+        <li>1 BNB = 115,000 XPASS (Min: 0.3 BNB)</li>
         <li>1 USDT = 125 XPASS (Min: 200 USDT)</li>
         <li>1 USDC = 125 XPASS (Min: 200 USDC)</li>
         <li>1 SOL = 27,000 XPASS (Min: 1 SOL)</li>
