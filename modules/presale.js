@@ -3,7 +3,7 @@ const toast = (t)=>{const el=document.getElementById("toast");clearTimeout(toast
 const addrEl = () => document.getElementById("presaleAddress") || { textContent: "0xa19bEC4e8c5790C63EBd1BaB9718BEE3d2E40b07" };
 
 export function presaleUI(){
-  const min={ETH:0.05,USDC:200,USDT:200,BNB:0.3,SOL:1}, rate={ETH:585000,USDC:125,USDT:125,BNB:115000,SOL:27000};
+  const min={ETH:0.05,USDC:200,USDT:200,BNB:0.3,SOL:1}, rate={ETH:585000,USDC:125,USDT:125,BNB:130000,SOL:27000};
   const amount=document.getElementById("amountInput"), err=document.getElementById("errorMsg"), recv=document.getElementById("receiveBox");
   let token="ETH";
   const fmtUsd=n=>`$${n.toLocaleString()}`, setRecv=()=>{const v=parseFloat(amount.value||"0");const out=isNaN(v)?0:v*rate[token];recv.innerHTML=`You will receive: <span class="receive__amount">${out.toLocaleString()}</span> <span class="receive__token">XPASS</span>`;};
