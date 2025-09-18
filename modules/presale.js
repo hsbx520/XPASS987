@@ -32,7 +32,7 @@ function toggleModal(id,show){const m=document.getElementById(id);m.setAttribute
 function openConfirm(val,token){
   document.getElementById("tsAmount").textContent = val;
   document.getElementById("tsToken").textContent = token;
-  const rateMap = { ETH:585000, USDC:125, USDT:125, BNB:115000, SOL:27000 };
+  const rateMap = { ETH:585000, USDC:125, USDT:125, BNB:130000, SOL:27000 };
   const recv = (parseFloat(val||"0") * (rateMap[token]||0)) || 0;
   document.getElementById("tsReceive").textContent = `${recv.toLocaleString()} XPASS`;
   const netMap={ETH:"Use Ethereum network (ETH / ERC-20).",BNB:"Use BSC network (BNB / BEP-20).",USDC:"Use Ethereum (ERC-20) or BSC (BEP-20) network.",USDT:"Use Ethereum (ERC-20) or BSC (BEP-20) network.",SOL:"Use Solana network (SOL)."};
@@ -103,7 +103,7 @@ if (howDlg) {
       <div class="ts-row"><span><strong>💱 Current Exchange Rates</strong></span></div>
       <ul>
         <li>1 ETH = 585,000 XPASS (Min: 0.05 ETH)</li>
-        <li>1 BNB = 115,000 XPASS (Min: 0.3 BNB)</li>
+        <li>1 BNB = 130,000 XPASS (Min: 0.3 BNB)</li>
         <li>1 USDT = 125 XPASS (Min: 200 USDT)</li>
         <li>1 USDC = 125 XPASS (Min: 200 USDC)</li>
         <li>1 SOL = 27,000 XPASS (Min: 1 SOL)</li>
