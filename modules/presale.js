@@ -21,7 +21,7 @@ export function presaleUI(){
     if(!validate()) return;
     openConfirm(amount.value,token);
   });
-  const raised=20136589, goal=22500000, pct=Math.min(100,(raised/goal)*100);
+  const raised=21366794, goal=22500000, pct=Math.min(100,(raised/goal)*100);
   document.getElementById("raisedNow").textContent=fmtUsd(raised);
   document.getElementById("raiseGoal").textContent=fmtUsd(goal);
   document.getElementById("progressPct").textContent=pct.toFixed(2);
