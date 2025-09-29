@@ -1,6 +1,6 @@
 export function startCountdown(){
   // Beijing time: 2025-09-15 13:00 => UTC: 2025-09-15 05:00
-  const targetUtcMs = Date.UTC(2025, 8, 29, 8, 0, 0);
+  const targetUtcMs = Date.UTC(2025, 8, 30, 8, 0, 0);
   const set=(id,v)=>{const el=document.getElementById(id); if(el) el.textContent=String(v).padStart(2,"0");};
   (function tick(){
     const diff=Math.max(0,targetUtcMs-Date.now());
