@@ -1,5 +1,5 @@
 export function startCountdown(){
-  // Beijing time: 2025-09-15 13:00 => UTC: 2025-09-15 05:00
+  // Beijing time: 2025-10-15 13:00 => UTC: 2025-09-15 05:00
   const targetUtcMs = Date.UTC(2025, 9, 05, 5, 0, 0);
   const set=(id,v)=>{const el=document.getElementById(id); if(el) el.textContent=String(v).padStart(2,"0");};
   (function tick(){
