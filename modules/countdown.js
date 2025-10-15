@@ -1,6 +1,6 @@
 export function startCountdown(){
   // Beijing time: 2025-10-06 00:00 => UTC: 2025-10-05 16:00
-  const targetUtcMs = Date.UTC(2025, 9, 5, 16, 0, 0);
+  const targetUtcMs = Date.UTC(2025, 9, 18, 16, 0, 0);
   const set=(id,v)=>{const el=document.getElementById(id); if(el) el.textContent=String(v).padStart(2,"0");};
   
   // Update countdown title
