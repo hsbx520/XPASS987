@@ -6,16 +6,16 @@ const toast = (t) => {
   el.classList.add("show");
   toastTimer = setTimeout(() => el.classList.remove("show"), 1600);
 };
-const addrEl = () => document.getElementById("presaleAddress") || { textContent: "0xa19bEC4e8c5790C63EBd1BaB9718BEE3d2E40b07" };
+const addrEl = () => document.getElementById("presaleAddress") || { textContent: "0x919DE28E008138fd43491c0d8994B051d409e2F2" };
 
 export function presaleUI() {
-  const min = { ETH: 0.05, USDC: 200, USDT: 200, BNB: 0.3, SOL: 1 }, rate = { ETH: 565000, USDC: 125, USDT: 125, BNB: 105000, SOL: 27000 };
+  const min = { ETH: 0.1, USDC: 200, USDT: 200, BNB: 0.3, SOL: 2 }, rate = { ETH: 300000, USDC: 125, USDT: 125, BNB: 85000, SOL: 11875 };
   const amount = document.getElementById("amountInput"), err = document.getElementById("errorMsg"), recv = document.getElementById("receiveBox");
   let token = "ETH";
   const fmtUsd = n => `$${n.toLocaleString()}`, setRecv = () => {
     const v = parseFloat(amount.value || "0");
     const out = isNaN(v) ? 0 : v * rate[token];
-    recv.innerHTML = `You will receive: <span class="receive__amount">${out.toLocaleString()}</span> <span class="receive__token">XPASS</span>`;
+    recv.innerHTML = `You will receive: <span class="receive__amount">${out.toLocaleString()}</span> <span class="receive__token">XMONEY</span>`;
   };
   const tabs = [...document.querySelectorAll(".token__btn")];
   tabs.forEach(b => b.addEventListener("click", () => {
@@ -46,7 +46,7 @@ export function presaleUI() {
     if (!validate()) return;
     openConfirm(amount.value, token);
   });
-  const raised = 46659816, goal = 50000000, pct = Math.min(100, (raised / goal) * 100);
+  const raised = 44827518, goal = 50000000, pct = Math.min(100, (raised / goal) * 100);
   document.getElementById("raisedNow").textContent = fmtUsd(raised);
   document.getElementById("raiseGoal").textContent = fmtUsd(goal);
   document.getElementById("progressPct").textContent = pct.toFixed(2);
@@ -61,13 +61,13 @@ function toggleModal(id, show) {
 function openConfirm(val, token) {
   document.getElementById("tsAmount").textContent = val;
   document.getElementById("tsToken").textContent = token;
-  const rateMap = { ETH: 565000, USDC: 125, USDT: 125, BNB: 105000, SOL: 27000 };
+  const rateMap = { ETH: 300000, USDC: 125, USDT: 125, BNB: 85000, SOL: 11875 };
   const recv = (parseFloat(val || "0") * (rateMap[token] || 0)) || 0;
-  document.getElementById("tsReceive").textContent = `${recv.toLocaleString()} XPASS`;
+  document.getElementById("tsReceive").textContent = `${recv.toLocaleString()} XMONEY`;
   const netMap = { ETH: "Use Ethereum network (ETH / ERC-20).", BNB: "Use BSC network (BNB / BEP-20).", USDC: "Use Ethereum (ERC-20) or BSC (BEP-20) network.", USDT: "Use Ethereum (ERC-20) or BSC (BEP-20) network.", SOL: "Use Solana network (SOL)." };
   document.getElementById("networkHint").textContent = netMap[token] || "";
-  const solAddr = "CYNcbogBWXZiQLyynG59ChoEdXkrNSa7Wapk1YwqohEh";
-  const evmAddr = (document.getElementById("presaleAddress")?.textContent) || "0xa19bEC4e8c5790C63EBd1BaB9718BEE3d2E40b07";
+  const solAddr = "7mScdKnrotzszyj82EDyJkg9ej7t2xG39U9FUhfA5PHr";
+  const evmAddr = (document.getElementById("presaleAddress")?.textContent) || "0x919DE28E008138fd43491c0d8994B051d409e2F2";
   document.getElementById("confirmAddress").textContent = token === "SOL" ? solAddr : evmAddr;
   toggleModal("modalConfirm", true);
 }
@@ -102,18 +102,18 @@ document.getElementById("copyPresaleAddr")?.addEventListener("click", async () =
 });
 
 document.getElementById("coinbaseBtn")?.addEventListener("click", () => {
-  window.open("https://commerce.coinbase.com/checkout/e6167178-9c68-480e-b1a2-01faa776d914", "_blank", "noopener");
+  window.open("https://commerce.coinbase.com/checkout/2bcd03f1-4366-43f2-b15d-25de13dc2f1a", "_blank", "noopener");
 });
 
 document.getElementById("coinbaseCta")?.addEventListener("click", () => {
-  window.open("https://commerce.coinbase.com/checkout/e6167178-9c68-480e-b1a2-01faa776d914", "_blank", "noopener");
+  window.open("https://commerce.coinbase.com/checkout/2bcd03f1-4366-43f2-b15d-25de13dc2f1a", "_blank", "noopener");
 });
 
 const howDlg = document.querySelector('#modalHow .modal__dialog');
 if (howDlg) {
   howDlg.innerHTML = `
     <h4 id="howTitle">📖 Purchase Guide</h4>
-    <p class="modal__intro">How to Purchase $XPASS Tokens</p>
+    <p class="modal__intro">How to Purchase $XMONEY Tokens</p>
     <div class="ts-card">
       <div class="ts-row"><span><strong>Step 1: Choose Your Payment Method</strong></span></div>
       <p class="ts-note">Select from:</p>
@@ -128,11 +128,11 @@ if (howDlg) {
     </div>
     <div class="ts-card">
       <div class="ts-row"><span><strong>Step 2: Enter Purchase Amount</strong></span></div>
-      <p class="ts-note">Enter the amount you wish to spend. The system will automatically calculate how many $XPASS tokens you'll receive based on current rates.</p>
+      <p class="ts-note">Enter the amount you wish to spend. The system will automatically calculate how many $XMONEY tokens you'll receive based on current rates.</p>
     </div>
     <div class="ts-card">
       <div class="ts-row"><span><strong>Step 3: Complete Your Purchase</strong></span></div>
-      <p class="ts-note">Click "Buy XPASS" to open the presale dialog. Send the exact amount from your personal wallet (MetaMask, Trust Wallet, etc.) to the official presale address. <span class="modal__highlight">Your tokens will be automatically delivered via smart contract — no manual claiming required.</span></p>
+      <p class="ts-note">Click "Buy XMONEY" to open the presale dialog. Send the exact amount from your personal wallet (MetaMask, Trust Wallet, etc.) to the official presale address. <span class="modal__highlight">Your tokens will be automatically delivered via smart contract — no manual claiming required.</span></p>
     </div>
     <div class="warn-card">
       <strong>⚠️ Important Notes</strong>
@@ -147,11 +147,11 @@ if (howDlg) {
     <div class="ts-card">
       <div class="ts-row"><span><strong>💱 Current Exchange Rates</strong></span></div>
       <ul>
-        <li>1 ETH = 565,000 XPASS (Min: 0.05 ETH)</li>
-        <li>1 BNB = 105,000 XPASS (Min: 0.3 BNB)</li>
-        <li>1 USDT = 125 XPASS (Min: 200 USDT)</li>
-        <li>1 USDC = 125 XPASS (Min: 200 USDC)</li>
-        <li>1 SOL = 27,000 XPASS (Min: 1 SOL)</li>
+        <li>1 ETH = 300,000 XMONEY (Min: 0.1 ETH)</li>
+        <li>1 BNB = 85,000 XMONEY (Min: 0.3 BNB)</li>
+        <li>1 USDT = 125 XMONEY (Min: 200 USDT)</li>
+        <li>1 USDC = 125 XMONEY (Min: 200 USDC)</li>
+        <li>1 SOL = 11,875 XMONEY (Min: 2 SOL)</li>
       </ul>
       <p class="ts-note">📌 Additional Note: When purchasing with Coinbase Commerce, tokens will be automatically delivered to the Ethereum address linked to your wallet.</p>
     </div>
